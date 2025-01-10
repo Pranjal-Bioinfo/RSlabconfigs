@@ -1,0 +1,28 @@
+params {
+  config_profile_description = '<RSlabconfigs> cluster profile provided by nf-core/configs.'
+  config_profile_contact = '<Pranjal> (<https://github.com/Pranjal-Bioinfo>)'
+}
+
+process {
+  resourceLimits = [
+    cpus: 40,
+    memory: 350.GB,
+    time: 720.h
+    partition=cancerq
+    exclude=node45,node46,node47
+  ]
+  executor = 'slurm'
+  partition=cancerq
+    exclude=node45,node46,node47
+   beforeScript = 'module avail singularity'
+}
+
+executor {
+  queueSize = 2
+}
+
+singularity {
+  enabled = true
+  autoMounts = true
+  cacheDir = '/lustre/pranjal.arun/singularity_cache'
+}
