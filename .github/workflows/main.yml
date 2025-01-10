@@ -170,6 +170,7 @@ jobs:
           - "wustl_htcf"
           - "xanadu"
           - "york_viking"
+          - "RSlabconfigs"
 
     steps:
       - uses: actions/checkout@v4
